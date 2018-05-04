@@ -2,7 +2,22 @@
 from time import sleep
 from random import randint
 
+
+SEVERITY = 2
+
+def ScreenLogger:
+    def emit(msg):
+        print(msg)
+
+def FileLogger:
+    def emit(msg):
+        with open("moon.log", "w") as f:
+            f.write(msg + "\n")
+
 def log(msg):
+    print(msg)
+
+def log(msg, logger):
     print(msg)
 
 def perform(manuever):
@@ -36,5 +51,5 @@ land_on_moon()
 # Ideas:
 # * Parameters?
 # * Polymorphism?
-# * Duck typing?
+# * Duck typing? make sure objects have the same methods.
 # * Dependency Inversion?

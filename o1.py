@@ -11,7 +11,8 @@ class RemoteFile:
 
 class Progress:
 
-    def __init__(self, f: RemoteFile):
+    def __init__(self, f: RemoteFile):  # you could allow f takes in any type,
+    # as long as promised that f has the functions uesd (fulfills the interface)
         self.file = f
 
     def getAsPercent(self):

@@ -3,6 +3,9 @@ public class HumanResourceDepartment
 {
     private IList<Engineer> _hiredEngineers;
     private IList<Manager> _hiredManagers;
+    // if another character is added, this is not working.
+    // You can use an interface and have a bunch of subclasses.
+    // Substitute principle, Interface segregation
 
     public void Hire(Engineer engineer){
         engineer.SignContract();

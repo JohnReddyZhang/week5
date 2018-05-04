@@ -1,0 +1,588 @@
+Last login: Wed Apr 25 19:06:32 on ttys000
+RMBP:~ JohnReddy$ cd Documents/Applied\ Software\ Engineering/
+RMBP:Applied Software Engineering JohnReddy$ mkdir test
+RMBP:Applied Software Engineering JohnReddy$ cd test
+RMBP:test JohnReddy$ git init .
+Initialized empty Git repository in /Users/JohnReddy/Documents/Applied Software Engineering/test/.git/
+RMBP:test JohnReddy$ ls -al
+total 0
+drwxr-xr-x   3 JohnReddy  staff   96 Apr 25 19:13 .
+drwxr-xr-x  15 JohnReddy  staff  480 Apr 25 19:13 ..
+drwxr-xr-x   9 JohnReddy  staff  288 Apr 25 19:13 .git
+RMBP:test JohnReddy$ cd .git
+RMBP:.git JohnReddy$ tree -C
+.
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── info
+│   └── exclude
+├── objects
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+8 directories, 14 files
+RMBP:.git JohnReddy$ gs
+GPL Ghostscript 9.21 (2017-03-16)
+Copyright (C) 2017 Artifex Software, Inc.  All rights reserved.
+This software comes with NO WARRANTY: see the file PUBLIC for details.
+GS>exit
+Error: /invalidexit in --exit--
+Operand stack:
+
+Execution stack:
+   %interp_exit   .runexec2   --nostringval--   --nostringval--   --nostringval--   2   %stopped_push   --nostringval--   --nostringval--   %loop_continue   --nostringval--   --nostringval--   false   1   %stopped_push   .runexec2   --nostringval--   --nostringval--   --nostringval--   2   %stopped_push   --nostringval--
+Dictionary stack:
+   --dict:1202/1684(ro)(G)--   --dict:0/20(G)--   --dict:78/200(L)--
+Current allocation mode is local
+Current file position is 5
+GS>^C
+RMBP:.git JohnReddy$ cd ..
+RMBP:test JohnReddy$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+RMBP:test JohnReddy$ ll
+-bash: ll: command not found
+RMBP:test JohnReddy$ echo "hello world" > hello.txt
+RMBP:test JohnReddy$ ls
+hello.txt
+RMBP:test JohnReddy$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	hello.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+RMBP:test JohnReddy$ git add -A
+RMBP:test JohnReddy$ cd .git
+RMBP:.git JohnReddy$ ls -C
+HEAD		description	index		objects
+config		hooks		info		refs
+RMBP:.git JohnReddy$ tree
+.
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── objects
+│   ├── 3b
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+9 directories, 16 files
+RMBP:.git JohnReddy$ tree -C
+.
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── objects
+│   ├── 3b
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+9 directories, 16 files
+RMBP:.git JohnReddy$ cd ..
+RMBP:test JohnReddy$ cat -file
+cat: illegal option -- f
+usage: cat [-benstuv] [file ...]
+RMBP:test JohnReddy$ git cat-file
+usage: git cat-file (-t [--allow-unknown-type] | -s [--allow-unknown-type] | -e | -p | <type> | --textconv | --filters) [--path=<path>] <object>
+   or: git cat-file (--batch | --batch-check) [--follow-symlinks] [--textconv | --filters]
+
+<type> can be one of: blob, tree, commit, tag
+    -t                    show object type
+    -s                    show object size
+    -e                    exit with zero when there's no error
+    -p                    pretty-print object's content
+    --textconv            for blob objects, run textconv on object's content
+    --filters             for blob objects, run filters on object's content
+    --path <blob>         use a specific path for --textconv/--filters
+    --allow-unknown-type  allow -s and -t to work with broken/corrupt objects
+    --buffer              buffer --batch output
+    --batch[=<format>]    show info and content of objects fed from the standard input
+    --batch-check[=<format>]
+                          show info about objects fed from the standard input
+    --follow-symlinks     follow in-tree symlinks (used with --batch or --batch-check)
+    --batch-all-objects   show all objects with --batch or --batch-check
+
+RMBP:test JohnReddy$ git cat-file -p 3b18e512dba79e4c8300dd08aeb37f
+hello world
+RMBP:test JohnReddy$ git cat-file -t 3b18e512dba79e4c8300dd08aeb37f
+blob
+RMBP:test JohnReddy$ git commit -m "initial"
+[master (root-commit) 04e9525] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+RMBP:test JohnReddy$ cd ..git
+-bash: cd: ..git: No such file or directory
+RMBP:test JohnReddy$ cd .git 
+RMBP:.git JohnReddy$ tree -C
+.
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 04
+│   │   └── e9525d83bd56e9d0e2b67ed630caf697a4aace
+│   ├── 3b
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── 68
+│   │   └── aba62e560c0ebc3396e8ae9335232cd93a3f60
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags
+
+14 directories, 22 files
+RMBP:.git JohnReddy$ cd ..
+RMBP:test JohnReddy$ git cat-file -p 04e9525
+tree 68aba62e560c0ebc3396e8ae9335232cd93a3f60
+author JohnReddyZhang <zhzhang135@me.com> 1524702116 -0500
+committer JohnReddyZhang <zhzhang135@me.com> 1524702116 -0500
+
+initial
+RMBP:test JohnReddy$ git cat-file -p 68aba62e560c0ebc3396e8ae9335232cd93a3f60
+100644 blob 3b18e512dba79e4c8300dd08aeb37f8e728b8dad	hello.txt
+RMBP:test JohnReddy$ cat .git/ref/heads/master
+cat: .git/ref/heads/master: No such file or directory
+RMBP:test JohnReddy$ cat .git/refs/heads/master
+04e9525d83bd56e9d0e2b67ed630caf697a4aace
+RMBP:test JohnReddy$ cat .git/COMMIT_EDITMSG 
+initial
+RMBP:test JohnReddy$ echo "warriors" > sports.txt
+RMBP:test JohnReddy$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	sports.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+RMBP:test JohnReddy$ cd .git
+RMBP:.git JohnReddy$ tree -C
+.
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 04
+│   │   └── e9525d83bd56e9d0e2b67ed630caf697a4aace
+│   ├── 3b
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── 68
+│   │   └── aba62e560c0ebc3396e8ae9335232cd93a3f60
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags
+
+14 directories, 22 files
+RMBP:.git JohnReddy$ cat HEAD
+ref: refs/heads/master
+RMBP:.git JohnReddy$ cd ..
+RMBP:test JohnReddy$ git add -A
+RMBP:test JohnReddy$ cd .git
+RMBP:.git JohnReddy$ tree -C
+.
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 04
+│   │   └── e9525d83bd56e9d0e2b67ed630caf697a4aace
+│   ├── 3b
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── 68
+│   │   └── aba62e560c0ebc3396e8ae9335232cd93a3f60
+│   ├── b5
+│   │   └── 9fa0f62e71b2c958b64c8ff02639e81fde0305
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags
+
+15 directories, 23 files
+RMBP:.git JohnReddy$ git cat-file -p b5
+fatal: Not a valid object name b5
+RMBP:.git JohnReddy$ git cat-file -p b59fa
+warriors
+RMBP:.git JohnReddy$ cd ..
+RMBP:test JohnReddy$ git commit -m "sports"
+[master 3b0608d] sports
+ 1 file changed, 1 insertion(+)
+ create mode 100644 sports.txt
+RMBP:test JohnReddy$ cd .git
+RMBP:.git JohnReddy$ tree -C
+.
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 04
+│   │   └── e9525d83bd56e9d0e2b67ed630caf697a4aace
+│   ├── 29
+│   │   └── 423aa34efc54cbb0f195a42106d09efe25dc0a
+│   ├── 3b
+│   │   ├── 0608d018f1d5812b25b22e8ac9c207f5109c66
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── 68
+│   │   └── aba62e560c0ebc3396e8ae9335232cd93a3f60
+│   ├── b5
+│   │   └── 9fa0f62e71b2c958b64c8ff02639e81fde0305
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags
+
+16 directories, 25 files
+RMBP:.git JohnReddy$ cd 
+RMBP:~ JohnReddy$ cd ..
+RMBP:Users JohnReddy$ git cat-file -p 3b0608d018
+fatal: Not a git repository (or any of the parent directories): .git
+RMBP:Users JohnReddy$ git log
+fatal: Not a git repository (or any of the parent directories): .git
+RMBP:Users JohnReddy$ cd ~
+RMBP:~ JohnReddy$ cd Documents/Applied\ Software\ Engineering/
+RMBP:Applied Software Engineering JohnReddy$ cd test/
+RMBP:test JohnReddy$ git cat-file -p 3b060
+tree 29423aa34efc54cbb0f195a42106d09efe25dc0a
+parent 04e9525d83bd56e9d0e2b67ed630caf697a4aace
+author JohnReddyZhang <zhzhang135@me.com> 1524702586 -0500
+committer JohnReddyZhang <zhzhang135@me.com> 1524702586 -0500
+
+sports
+RMBP:test JohnReddy$ git cat-file -p 3b18d
+fatal: Not a valid object name 3b18d
+RMBP:test JohnReddy$ git cat-file -p 3b18e
+hello world
+RMBP:test JohnReddy$ git cat-file -p info
+fatal: Not a valid object name info
+RMBP:test JohnReddy$ git cat-file -p 04e9525d83bd56e9d0e2b67ed630caf697a4aace
+tree 68aba62e560c0ebc3396e8ae9335232cd93a3f60
+author JohnReddyZhang <zhzhang135@me.com> 1524702116 -0500
+committer JohnReddyZhang <zhzhang135@me.com> 1524702116 -0500
+
+initial
+RMBP:test JohnReddy$ git cat-file -p 29423
+100644 blob 3b18e512dba79e4c8300dd08aeb37f8e728b8dad	hello.txt
+100644 blob b59fa0f62e71b2c958b64c8ff02639e81fde0305	sports.txt
+RMBP:test JohnReddy$ ls
+hello.txt	sports.txt
+RMBP:test JohnReddy$ echo "byebye" >> hello.txt 
+RMBP:test JohnReddy$ cat hello.txt 
+hello world
+byebye
+RMBP:test JohnReddy$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   hello.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+RMBP:test JohnReddy$ git add -A
+RMBP:test JohnReddy$ git commit -m "mod"
+[master eb38b45] mod
+ 1 file changed, 1 insertion(+)
+RMBP:test JohnReddy$ echo "another" >> hello.txt 
+RMBP:test JohnReddy$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   hello.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+RMBP:test JohnReddy$ git commit -m "again"
+On branch master
+Changes not staged for commit:
+	modified:   hello.txt
+
+no changes added to commit
+RMBP:test JohnReddy$ git branch
+* master
+RMBP:test JohnReddy$ tree -C .git/
+.git/
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 04
+│   │   └── e9525d83bd56e9d0e2b67ed630caf697a4aace
+│   ├── 29
+│   │   └── 423aa34efc54cbb0f195a42106d09efe25dc0a
+│   ├── 3b
+│   │   ├── 0608d018f1d5812b25b22e8ac9c207f5109c66
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── 66
+│   │   └── ba3dfacce12fc8d5ece5cb679e1c364ba04f29
+│   ├── 68
+│   │   └── aba62e560c0ebc3396e8ae9335232cd93a3f60
+│   ├── b1
+│   │   └── 2bfb897f6fce7881841e0bbdb9801b9151721e
+│   ├── b5
+│   │   └── 9fa0f62e71b2c958b64c8ff02639e81fde0305
+│   ├── eb
+│   │   └── 38b45e509b161e7de7ae02323ad71471a6883d
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags
+
+19 directories, 28 files
+RMBP:test JohnReddy$ git branch experiment
+RMBP:test JohnReddy$ tree -C .git/
+.git/
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           ├── experiment
+│           └── master
+├── objects
+│   ├── 04
+│   │   └── e9525d83bd56e9d0e2b67ed630caf697a4aace
+│   ├── 29
+│   │   └── 423aa34efc54cbb0f195a42106d09efe25dc0a
+│   ├── 3b
+│   │   ├── 0608d018f1d5812b25b22e8ac9c207f5109c66
+│   │   └── 18e512dba79e4c8300dd08aeb37f8e728b8dad
+│   ├── 66
+│   │   └── ba3dfacce12fc8d5ece5cb679e1c364ba04f29
+│   ├── 68
+│   │   └── aba62e560c0ebc3396e8ae9335232cd93a3f60
+│   ├── b1
+│   │   └── 2bfb897f6fce7881841e0bbdb9801b9151721e
+│   ├── b5
+│   │   └── 9fa0f62e71b2c958b64c8ff02639e81fde0305
+│   ├── eb
+│   │   └── 38b45e509b161e7de7ae02323ad71471a6883d
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   ├── experiment
+    │   └── master
+    └── tags
+
+19 directories, 30 files
+RMBP:test JohnReddy$ cat .git/refs/heads/ex
+cat: .git/refs/heads/ex: No such file or directory
+RMBP:test JohnReddy$ cat .git/refs/heads/experiment 
+eb38b45e509b161e7de7ae02323ad71471a6883d
+RMBP:test JohnReddy$ cat .git/refs/heads/master 
+eb38b45e509b161e7de7ae02323ad71471a6883d
+RMBP:test JohnReddy$ cat .git/HEAD 
+ref: refs/heads/master
+RMBP:test JohnReddy$ echo "rr" > programming.txt
+RMBP:test JohnReddy$ git add -A
+RMBP:test JohnReddy$ git commit -m "language prefreence"
+[master 796c742] language prefreence
+ 2 files changed, 2 insertions(+)
+ create mode 100644 programming.txt
+RMBP:test JohnReddy$ cat .git/refs/heads/master 
+796c74237332d5320e5bc14630429775ac266f97
+RMBP:test JohnReddy$ cat .git/refs/heads/experiment 
+eb38b45e509b161e7de7ae02323ad71471a6883d
+RMBP:test JohnReddy$ git branch
+  experiment
+* master
+RMBP:test JohnReddy$ git checkout experiment
+Switched to branch 'experiment'
+RMBP:test JohnReddy$ ls
+hello.txt	sports.txt
+RMBP:test JohnReddy$ cat .git/HEAD
+ref: refs/heads/experiment
+RMBP:test JohnReddy$ git status
+On branch experiment
+nothing to commit, working tree clean
+RMBP:test JohnReddy$ git branch
+* experiment
+  master
+RMBP:test JohnReddy$ 
